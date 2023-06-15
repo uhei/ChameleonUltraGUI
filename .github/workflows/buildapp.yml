@@ -79,10 +79,10 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          architecture: x64
+          architecture: arm64
       - run: flutter config --enable-macos-desktop
       - run: flutter build macos
       - uses: actions/upload-artifact@v3
         with:
           name: macos
-          path: chameleonultragui/build/macos/x64/release
+          path: chameleonultragui/build/macos/arm64/release
