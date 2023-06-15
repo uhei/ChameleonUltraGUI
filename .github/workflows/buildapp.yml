@@ -68,3 +68,21 @@ jobs:
         with:
           name: linux
           path: chameleonultragui/build/linux/x64/release
+
+  build-macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./chameleonultragui
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          architecture: x64
+      - run: flutter config --enable-macos-desktop
+      - run: flutter build macos
+      - uses: actions/upload-artifact@v3
+        with:
+          name: macos
+          path: chameleonultragui/build/macos/x64/release
